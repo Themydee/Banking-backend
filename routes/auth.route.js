@@ -14,6 +14,6 @@ router.post('/register', registerCustomer);
 router.post('/login', loginCustomer);
 
 //  Verify customer (simulate verification) 
-router.patch('/verify/:id', verifyCustomer);
+router.patch('/verify/:token', verifyCustomer);
 
 module.exports = router;
