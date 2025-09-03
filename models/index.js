@@ -1,3 +1,4 @@
+const sequelize = require('../config/db');
 const Customer = require('../models/customer');
 const Account = require('../models/account');
 const Transaction = require('../models/transaction');
@@ -16,4 +17,4 @@ Account.hasMany(Transaction, { foreignKey: 'toAccountId', as: 'incomingTransacti
 Transaction.belongsTo(Account, { as: 'fromAccount', foreignKey: 'fromAccountId' });
 Transaction.belongsTo(Account, { as: 'toAccount', foreignKey: 'toAccountId' });
 
-module.exports = { Customer, Account, Transaction };
+module.exports = { Customer, Account, Transaction, sequelize };

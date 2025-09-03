@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const Customer = require('../models/customer');
 
 const Account = sequelize.define('Account', {
   id: {
@@ -12,6 +13,9 @@ const Account = sequelize.define('Account', {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
+    validate: { 
+      len: [10, 10] 
+    },
   },
 
   balance: {
@@ -31,6 +35,10 @@ const Account = sequelize.define('Account', {
 
   customerId: {
     type: DataTypes.INTEGER,
+    references: { 
+      model: Customer, 
+      key: 'id' 
+    },
     allowNull: false,
   },
 }, {

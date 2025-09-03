@@ -23,6 +23,8 @@ app.use('/api/', limiter);
 
 const customerRoutes = require('./routes/customer.route');
 const authRoutes = require('./routes/auth.route');
+const accountRoutes = require('./routes/account.route');
+const transactionRoutes = require('./routes/transaction.route');
 // Example test route
 app.get('/api/health', (req, res) => {
   res.json({ status: 'Backend running OK 🚀' });
@@ -32,6 +34,8 @@ app.get('/api/health', (req, res) => {
 
 app.use('/api/customers', customerRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/account', accountRoutes);
+app.use('/api/transactions', transactionRoutes);
 
 
 // Database sync + server start
